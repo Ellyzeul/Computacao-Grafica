@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "name": "implementacoes-computacao-grafica",
+  "description": "Implementações dos trabalhos da disciplina de computação gráfica",
+  "version": "1.0.0",
+  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "main": "app/background.js",
+  "scripts": {
+    "dev": "nextron",
+    "build": "nextron build",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "electron-serve": "^1.1.0",
+    "electron-store": "^8.1.0",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/react": "^18.0.8",
+    "@types/styled-components": "^5.1.26",
+    "electron": "^20.1.0",
+    "electron-builder": "^23.3.3",
+    "next": "^12.3.1",
+    "nextron": "^8.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.8.2"
+  }
+}
