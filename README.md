@@ -1,38 +1,5 @@
-<p align="center"><img src="https://i.imgur.com/NZfsD1p.png"></p>
+# Computação Gráfica
 
-## Usage
-
-### Create an App
-
-```
-# with npx
-$ npx create-nextron-app my-app --example with-typescript
-
-# with yarn
-$ yarn create nextron-app my-app --example with-typescript
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example with-typescript
-```
-
-### Install Dependencies
-
-```
-$ cd my-app
-
-# using yarn or npm
-$ yarn (or `npm install`)
-
-# using pnpm
-$ pnpm install --shamefully-hoist
-```
-
-### Use it
-
-```
-# development mode
-$ yarn dev (or `npm run dev` or `pnpm run dev`)
-
-# production build
-$ yarn build (or `npm run build` or `pnpm run build`)
-```
+Esse projeto é uma coleção de implementações da disciplina de computação gráfica.
+A interface e implementações estão contidos no mesmo projeto mas devidamente separados dentro da arquitetura do projeto.
+Essa interface Electron é feita utilizando o projeto [Nextron](https://github.com/saltyshiomix/nextron), confira lá caso seja de interesse. ありがとうございますしおのさん。
