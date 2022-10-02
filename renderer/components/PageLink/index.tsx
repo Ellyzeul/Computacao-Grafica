@@ -1,5 +1,4 @@
 import { useRouter } from "next/router"
-import { Navigate } from "react-router-dom"
 import { StyledPageLink } from "./styles"
 import { PageLinkProp } from "./types"
 

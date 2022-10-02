@@ -1,5 +1,4 @@
 import { GeneralContainer } from "../components/GeneralContainer"
-import { BackgroundContainer } from "../styles/global"
 
 const LineDrawPage = () => {
   return (
