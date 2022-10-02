@@ -10,4 +10,5 @@ export const BackgroundContainer = styled.div`
   display: grid;
   grid-template-rows: 50px calc(100vh - 50px);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: white;
 `

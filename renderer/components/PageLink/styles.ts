@@ -9,6 +9,7 @@ export const StyledPageLink = styled.div`
   grid-template-columns: 40% 60%;
   place-items: center;
   border-radius: 3px;
+  color: black;
   transition: 125ms;
   user-select: none;
 
