@@ -78,6 +78,8 @@ export default (windowName: string, options: BrowserWindowConstructorOptions): B
   };
   win = new BrowserWindow(browserOptions);
 
+  win.removeMenu();
+
   win.on('close', saveState);
 
   return win;
