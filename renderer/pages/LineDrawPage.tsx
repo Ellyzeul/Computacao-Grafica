@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { Canvas } from "../../components/Canvas"
-import { CanvasEvent } from "../../components/Canvas/types"
-import { GeneralContainer } from "../../components/GeneralContainer"
-import lineDraw from "../../graphics-framework/lineDraw"
-import { LineDrawContainer } from "./styles"
+import { Canvas } from "../components/Canvas"
+import { CanvasEvent } from "../components/Canvas/types"
+import { GeneralContainer } from "../components/GeneralContainer"
+import lineDraw from "../graphics-framework/lineDraw"
+import { LineDrawContainer } from "../styles/pages/linedraw"
 
 const LineDrawPage = () => {
   const [initialPoint, setInitialPoint] = useState(null as {x: number, y: number} | null)
