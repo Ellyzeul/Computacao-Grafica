@@ -4,6 +4,7 @@ export const StyledPageLink = styled.div`
   min-width: 250px;
   width: 25%;
   height: 100px;
+  margin: 10px 50px;
   background-color: white;
   display: grid;
   grid-template-columns: 40% 60%;

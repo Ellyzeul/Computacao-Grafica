@@ -2,13 +2,18 @@ import { useState } from "react"
 import { Canvas } from "../components/Canvas"
 import { CanvasEvent } from "../components/Canvas/types"
 import { GeneralContainer } from "../components/GeneralContainer"
-import lineDraw from "../graphics-framework/lineDraw"
-import { LineDrawAlgoChooser, LineDrawAlgoOption, LineDrawContainer } from "../styles/pages/linedraw"
+import circleDraw from "../graphics-framework/circleDraw"
+import { CircleDrawAlgoChooser, CircleDrawAlgoOption, CircleDrawContainer } from "../styles/pages/circledraw"
 
-const LineDrawPage = () => {
+const CircleDrawPage = () => {
   const [initialPoint, setInitialPoint] = useState(null as {x: number, y: number} | null)
-  const [lines, setLines] = useState([] as {x0: number, y0: number, x1: number, y1: number}[])
+  const [circles, setCircles] = useState([] as {xc: number, yc: number, radius: number}[])
   const [algo, setAlgo] = useState(null as string)
+  const pointsDistance = (x0: number, y0: number, x1: number, y1: number) => {
+    const a = Math.abs(x0-x1)
+    const b = Math.abs(y0-y1)
+    return Math.sqrt(a*a + b*b)
+  }
 
   const onMouseDown: CanvasEvent = (event: MouseEvent) => {
     const canvas = event.target as HTMLCanvasElement
@@ -16,11 +21,10 @@ const LineDrawPage = () => {
     const { offsetTop, offsetLeft } = ctx.canvas
     const [x, y] = [event.clientX - offsetLeft, event.clientY - offsetTop]
     if(initialPoint) {
-      setLines([...lines, {
-        x0: initialPoint.x,
-        y0: initialPoint.y,
-        x1: x,
-        y1: y
+      setCircles([...circles, {
+        xc: initialPoint.x,
+        yc: initialPoint.y,
+        radius: pointsDistance(initialPoint.x, initialPoint.y, x, y)
       }])
       setInitialPoint(null)
       return
@@ -39,33 +43,35 @@ const LineDrawPage = () => {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    [...lines, {x0: initialPoint.x, y0: initialPoint.y, x1: x, y1: y}].forEach(line => lineDraw(
-      ctx,
-      line.x0,
-      line.y0,
-      line.x1,
-      line.y1,
-      algo
-    ))
+    [...circles, {xc: initialPoint.x, yc: initialPoint.y, radius: pointsDistance(initialPoint.x, initialPoint.y, x, y)}]
+      .forEach(circle => circleDraw(
+        ctx,
+        circle.xc,
+        circle.yc,
+        circle.radius,
+        algo
+      )
+    )
   }
   onMouseMove.eventOn = "mousemove"
 
   return (
-    <GeneralContainer pageTitle="Desenhar reta">
-      <LineDrawContainer>
+    <GeneralContainer pageTitle="Desenhar circulo">
+      <CircleDrawContainer>
         <div>Clique em um ponto do canvas para escolher um ponto inicial e em outro para o ponto final.</div>
-        <LineDrawAlgoChooser>
+        <CircleDrawAlgoChooser>
           <span>Escolha o algoritmo para desenhar: </span>
-          <LineDrawAlgoOption onClick={() => setAlgo("equation")}>Equação da reta</LineDrawAlgoOption>
-          <LineDrawAlgoOption onClick={() => setAlgo("bresenham")}>Bresenham</LineDrawAlgoOption>
-        </LineDrawAlgoChooser>
+          <CircleDrawAlgoOption onClick={() => setAlgo("equation")}>Equação do circulo</CircleDrawAlgoOption>
+          <CircleDrawAlgoOption onClick={() => setAlgo("parametric")}>Equação paramétrica</CircleDrawAlgoOption>
+          <CircleDrawAlgoOption onClick={() => setAlgo("bresenham")}>Bresenham</CircleDrawAlgoOption>
+        </CircleDrawAlgoChooser>
         <Canvas events={[
           onMouseDown,
           onMouseMove
         ]} />
-      </LineDrawContainer>
+      </CircleDrawContainer>
     </GeneralContainer>
   )
 }
 
-export default LineDrawPage
+export default CircleDrawPage

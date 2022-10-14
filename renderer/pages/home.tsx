@@ -9,6 +9,7 @@ function Home() {
       <GeneralContainer pageTitle='Ínicio'>
         <HomeContainer>
           <PageLink label='Desenhar reta' icon='line-icon.png' linkTo='LineDrawPage' />
+          <PageLink label='Desenhar circulo' icon='circle-icon.png' linkTo='CircleDrawPage' />
         </HomeContainer>
       </GeneralContainer>
     </React.Fragment>

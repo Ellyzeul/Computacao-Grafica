@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LineDrawContainer = styled.div`
+export const CircleDrawContainer = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
@@ -8,7 +8,7 @@ export const LineDrawContainer = styled.div`
   place-items: center;
 `
 
-export const LineDrawAlgoChooser = styled.div`
+export const CircleDrawAlgoChooser = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -16,7 +16,7 @@ export const LineDrawAlgoChooser = styled.div`
   justify-content: center;
 `
 
-export const LineDrawAlgoOption = styled.div`
+export const CircleDrawAlgoOption = styled.div`
   padding: 6px 10px;
   margin-left: 5px;
   background-color: white;
